@@ -46,6 +46,7 @@ const barrels: string[] = [
   'app/core/firebase',
   'app/settings',
   'app/settings/profile',
+  'app/search-donor',
   /** @cli-barrel */
 ];
 

@@ -3,6 +3,7 @@ import { provideRouter, ROUTER_DIRECTIVES, RouterConfig } from '@angular/router'
 
 import { HomeComponent } from './home';
 import { SettingsComponent, ProfileComponent } from './settings';
+import { SearchDonorComponent } from './search-donor';
 
 export const routes: RouterConfig = [
   { path: '', component: HomeComponent },
@@ -13,6 +14,10 @@ export const routes: RouterConfig = [
       { path: '', component: ProfileComponent },
       { path: 'profile', component: ProfileComponent }
     ]
+  },
+  {
+    path: 'search/:bloodGroup/:district',
+    component: SearchDonorComponent
   }
 ];
 

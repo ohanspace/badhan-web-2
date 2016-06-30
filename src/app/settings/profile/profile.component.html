@@ -1,51 +1,60 @@
+<spinner [isRunning]="loadingState"></spinner>
+
 <form [formGroup]="form" (ngSubmit)="save()">
   <fieldset>
-    <legend>Profile</legend>
+    <legend>Profile</legend> 
+
     <div class="form-group">
-      <label for="name">Name</label>
+      <label for="name">
+        Name <span *ngIf="nameCtrl.touched && !nameCtrl.valid" class="label label-danger">Required</span>
+      </label>
       <input type="text" class="form-control" id="name" 
             [ngModel]="(memberPristine |async)?.name"
             formControlName="name">
-       <div *ngIf="nameCtrl.touched && !nameCtrl.valid" class="alert alert-danger">
-        Name is required
-      </div>
-     
     </div>
 
-    <!--<div class="form-group">
-      <label>Blood Group</label>
+    <div class="form-group">
+      <label>
+        Select Blood Group <span *ngIf="bloodGroupCtrl.touched && !bloodGroupCtrl.valid" class="label label-danger">Required</span>
+      </label>
       <select class="form-control"
-          formControlName="bloodGroup"  [ngModel]="(memberPristine |async)?.bloodGroup">
-        <option [selected]="true">Select Blood Group</option>
+              formControlName="bloodGroup"
+              [ngModel]="(memberPristine |async)?.bloodGroup">
+        <option [selected]="true" disabled>Select Blood Group</option>
         <option [ngValue]="bloodGroup.id" *ngFor = "let bloodGroup of bloodGroups">{{bloodGroup.name}}</option>
       </select>
     </div>
 
     <div class="form-group">
-      <label for="telephone">Telephone</label>
-      <input type="text" class="form-control" id="telephone" [ngModel]="(memberPristine |async)?.telephone"
-         formControlName="telephone">
+      <label for="telephone">
+        Telephone <span *ngIf="telephoneCtrl.touched && !telephoneCtrl.valid" class="label label-danger">Required</span>
+      </label>
+      <input type="text" class="form-control" id="telephone" 
+            [ngModel]="(memberPristine |async)?.telephone"
+            formControlName="telephone">
     </div>
 
     <div class="form-group">
-      <label>Districts</label>
+      <label>
+        Districts <span *ngIf="districtCtrl.touched && !districtCtrl.valid" class="label label-danger">Required</span>
+      </label>
       <select class="form-control"
-          formControlName="district"  [ngModel]="(memberPristine |async)?.district">
-        <option [selected]="true">Select Districts</option>
+              formControlName="district"
+              [ngModel]="(memberPristine |async)?.district">
+        <option [selected]="true" disabled>Select Districts</option>
         <option [ngValue]="district.id" *ngFor = "let district of districts">{{district.name}}</option>
       </select>
     </div>
 
     <div class="form-group">
-      <label for="addressText">Address Text</label>
-      <input type="text" class="form-control" id="addressText" [ngModel]="(memberPristine |async)?.addressText"
-        formControlName="addressText">
-    </div>-->
-<!--
-    <div class="form-group">
-      <label>Belong to Organogram</label>
-      <organogram-select (organogramSelected)="onOrganogramSelect($event)"></organogram-select>
-    </div>-->
+      <label for="addressText">
+        Address Text <span *ngIf="addressTextCtrl.touched && !addressTextCtrl.valid" class="label label-danger">Required</span>
+      </label>
+      <input type="text" class="form-control" id="addressText" 
+            [ngModel]="(memberPristine |async)?.addressText"
+            formControlName="addressText">
+    </div>
+
 
     <button [disabled]="!form.valid" type="submit" class="btn btn-primary"> 
       Save

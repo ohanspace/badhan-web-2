@@ -1,0 +1,46 @@
+ <!--search row
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-sm-offset-3  text-center">
+        <div class="form-group hp-search-form"  >       
+            <select class="form-control" 
+                    [(ngModel)]="bloodGroup"
+                    (ngModelChange)="onBloodGroupChange($event)"
+                    >
+                <option [ngValue]="bloodGroup.id" 
+                        *ngFor = "let bloodGroup of bloodGroups">
+                        {{bloodGroup.name}}
+                  </option>
+            </select>  
+            <input type="text" class="form-control" 
+                   placeholder="where do you need?. e.g. dhaka" autofocus
+                   [(ngModel)]="district">
+        </div>   
+
+        
+      </div>
+</div>-->
+<!--
+<ul>
+  <li *ngFor="let donor of donors | async">{{donor?.name}}</li>
+</ul>-->
+<div class="row">
+  <div class="col-lg-12">
+    <h3 class="page-header">Search result : <small>{{bloodGroup}}</small></h3>
+  </div>
+  <div class="col-lg-4 col-sm-3 "
+        *ngFor="let donor of donors | async">
+      <h4>{{donor.name}}
+          <small>{{donor.bloodGroup}}</small>
+      </h4>
+      <p>Tel: {{donor.telephone}}</p>
+      <p>address: {{donor.addressText}}</p>
+      <p>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+          <span class="glyphicon glyphicon-star"></span>
+      </p>
+  </div>
+</div>
+

@@ -2,11 +2,18 @@
 <div class="row">
     <div class="col-xs-12 col-sm-6 col-sm-offset-3  text-center">
         <img class="img-responsive img-center hp-logo" src="img/logo.gif" >
-        <form class="form-group hp-search-form"  >       
-            <select class="form-control">
-                <option value="">AB+</option>
+        <form class="form-group hp-search-form" 
+              [formGroup]="searchForm" 
+              (ngSubmit)="onSearch()">       
+            <select class="form-control"
+                    [(ngModel)]="bloodGroup"
+                    formControlName="bloodGroup">
+                <option [ngValue]="bloodGroup.id" *ngFor = "let bloodGroup of bloodGroups">{{bloodGroup.name}}</option>
             </select>  
-            <input type="text" class="form-control" placeholder="where do you need?. e.g. dhaka" autofocus>
+            <input type="text" class="form-control" autofocus
+                  placeholder="where do you need?. e.g. dhaka" 
+                  [(ngModel)]="district"
+                  formControlName="district">
             <button class="btn btn-default" >
                 <span class="glyphicon glyphicon-search"></span>
                 Search Donor</button>
