@@ -1,0 +1,30 @@
+.img-center{
+    margin: auto;
+}
+.hp-search-form{
+    margin-top: 5%;
+}
+.hp-search-form > .form-control{
+    height: 40px;
+}
+.hp-search-form > button{
+    margin: 25 auto;
+    display: block;
+    background-color: #F7F7F9;
+
+}
+
+@media (min-width: 768px) { 
+    .hp-search-form > select{
+        width:20%;
+        display: inline;
+    }
+    .hp-search-form > input{
+        width: 80%;
+        margin-left: -6px;
+        border-radius: 0px;
+        display: inline;
+    }
+ }
+
+ 
